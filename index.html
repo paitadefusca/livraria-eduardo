@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Livraria Online</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+     
+    <div class="parte1">
+    <h1>Bem-vindo à Livraria Online</h1>
+    <img src="livraria.jpg" id="livraria">
+    <p>Insira o valor total da sua compra:</p>
+    <input type="number" id="valorCompra" placeholder="Insira o valor em R$">
+    <button onclick="calcularDesconto()">Calcular Desconto</button>
+    <p>Desconto aplicado: <span id="desconto"></span></p>
+
+    <script>
+        function calcularDesconto() {
+            const valorCompra = parseFloat(document.getElementById('valorCompra').value);
+
+            let desconto = 0;
+
+            if (valorCompra > 200) {
+                desconto = 0.2; // 20%
+            } else if (valorCompra > 100) {
+                desconto = 0.1; // 10%
+            }
+            else if(valorCompra<=100){
+                desconto=0.05;
+
+            }
+
+            const valorDesconto = valorCompra * desconto;
+            document.getElementById('desconto').textContent = `R$ ${valorDesconto.toFixed(2)}`;
+        }
+    </script>
+    </div>
+    <main>
+        <ul class="produtos">
+           <li>
+             <h2>Livros</h2>
+             <img src="livros.jpg" id="livros">
+             <p class="produto-descricao">Livros de todos os gostos e sabores</p>
+             <p class="preco-produto">R$ 30,00</p>
+           </li>
+
+             <li>
+                <h2>HQs</h2>
+                <img src="hq.jpg" id="hq">
+                <p class="produto-descricao">Da Marvel, DC e etc.</p>
+                <p class="preco-produto">R$ 25,00</p>
+            </li>
+
+            <li>
+                <h2>Mangás</h2>
+                <img src="manga.jpg" id="manga">
+                <p class="produto-descricao">Para ler todos os seus mangás preferidos</p>
+                <p class="preco-produto">R$35,00</p>
+            </li>
+       </ul>
+</main>
+</body>
+</html>
