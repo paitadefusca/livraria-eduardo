@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="caixa">
+        <nav>
+          <ul>
+            <li> <a href="index.html"> Home </a></li>
+          </ul>
+        </nav>
+      </div>
+
+    <main>
+     <form id="cadastro">
+
+        <label for="nome"> Nome e Sobrenome</label>
+        <input type="text" id="nome" class="input-padrao" required>
+
+        <label for="email"> Email</label>
+        <input type="email" id="email" class="input-padrao"required placeholder="seuemail@dominio.com">
+
+        <label for="senha"> Senha</label>
+        <input type="senha" id="senha" class="input-padrao"required placeholder="XXXXXXX">
+
+        <label for="telefone"> Telefone</label>
+        <input type="tel" id="telefone" class="input-padrao"required placeholder="(XX) XXXXX-XXXX">
+
+        <label for="endereco"> Endereço</label>
+        <input type="end" id="endereco" class="input-padrao" required>
+
+        <button type="button" onclick="cadastrarUsuario()">Cadastrar</button>
+
+        <div id="mensagem"></div>
+        <script>
+            function cadastrarUsuario(){
+                // Obter os valores do formulário
+               var nome = document.getElementById("nome").value;
+               var email = document.getElementById("email").value;
+               var senha = document.getElementById("senha").value;
+               var telefone = document.getElementById("telefone").value;
+               var endereco = document.getElementById("endereco").value;
+               //validar os campos (adicionar mais validações caso necessário)
+               if (nome === "" || email === "" ||  senha === "" || telefone === ""|| endereco ===""){
+                   document.getElementById("mensagem").innerHTML = "Por favor, preencha os campos necessários.";
+                   return;
+               }
+
+               var usuario = {
+                nome : nome,
+                email : email,
+                senha : senha,
+                telefone : telefone,
+                endereco :endereco
+               }
+               console.log("Usuário cadastrado: ", usuario);
+               document.getElementById("cadastro").reset();
+               document.getElementById("mensagem").innerHTML = "Cadastro realizado com sucesso!";
+
+            }
+        </script>
+     </form>
+   </main>
+
+</body>
+</html>
